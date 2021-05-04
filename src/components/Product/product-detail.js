@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 //Components
-import AddToCart from "../Cart/AddToCart"
+import AddToCart from "../Cart/addtocart"
 
 const ProductPageContainer = styled.div`
   display: flex;

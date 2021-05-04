@@ -7,8 +7,8 @@ import { useLocation } from "@reach/router"
 
 //Components
 import Menu from "./menu"
-import CartIcon from "../Cart/CartIcon"
-import Cart from "../Cart/Cart"
+import CartIcon from "../Cart/carticon"
+import Cart from "../Cart/cart"
 
 //Images
 import Raymond from "../../images/raymond.jpg"
