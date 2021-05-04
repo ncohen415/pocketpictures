@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import SEO from "../../seo"
 
 const HomePageContainer = styled.div`
   width: 100%;
@@ -43,6 +44,7 @@ const Home = data => {
   const homeACF = data.data.wpPage.HomePageACF
   return (
     <HomePageContainer>
+      <SEO title="Home" />
       <section className="reel">
         <div
           dangerouslySetInnerHTML={{ __html: homeACF.reel }}

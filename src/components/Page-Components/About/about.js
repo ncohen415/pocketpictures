@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import SEO from "../../seo"
 
 //Components
 import Staff from "./staff"
@@ -190,6 +191,7 @@ const About = () => {
   const aboutACF = data?.wpPage?.AboutPageACF
   return (
     <AboutPageContainer>
+      <SEO title="About" />
       <section className="heading-container">
         <div className="heading-wrapper">
           <div className="description-wrapper">

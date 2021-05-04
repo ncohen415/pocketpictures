@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import SEO from "../../seo"
 
 const ContactPageContainer = styled.div`
   width: 100%;
@@ -11,6 +12,7 @@ const ContactPageContainer = styled.div`
 const Contact = () => {
   return (
     <ContactPageContainer>
+      <SEO title="Contact" />
       <h1>hi</h1>
     </ContactPageContainer>
   )

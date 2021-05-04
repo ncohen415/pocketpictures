@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import SEO from "../../seo"
 
 const CovidPageContainer = styled.div`
   width: 100%;
@@ -106,6 +107,7 @@ const Covid = () => {
 
   return (
     <CovidPageContainer>
+      <SEO title="Covid-19" />
       <section className="heading-container">
         <div className="heading-wrapper">
           <div className="description-wrapper">

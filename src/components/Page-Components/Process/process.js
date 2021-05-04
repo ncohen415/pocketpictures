@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import SEO from "../../seo"
 
 const ProcessPageContainer = styled.div`
   width: 100%;
@@ -94,6 +95,7 @@ const Process = () => {
 
   return (
     <ProcessPageContainer>
+      <SEO title="Process" />
       <section className="heading-container">
         <h1 className="page-heading">{processACF.processPageHeading}</h1>
         <h3 className="page-sub-heading">{processACF.processPageSubHeading}</h3>

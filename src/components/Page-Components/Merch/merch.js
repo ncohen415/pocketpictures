@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import SEO from "../../seo"
 
 //Components
 import ProductsListing from "../../Product/products-listing"
@@ -14,6 +15,7 @@ const MerchPageContainer = styled.div`
 const Merch = () => {
   return (
     <MerchPageContainer>
+      <SEO title="Merch" />
       <ProductsListing />
     </MerchPageContainer>
   )
