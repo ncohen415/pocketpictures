@@ -7,13 +7,17 @@ const ContactPageContainer = styled.div`
   height: 100%;
   background-color: white;
   padding: 0 3rem 0 3rem;
+  h1 {
+    margin: 0;
+    padding: 2rem;
+  }
 `
 
 const Contact = () => {
   return (
     <ContactPageContainer>
       <SEO title="Contact" />
-      <h1>hi</h1>
+      <h1>(In Development)</h1>
     </ContactPageContainer>
   )
 }

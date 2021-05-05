@@ -9,6 +9,12 @@ import styled from "styled-components"
 const WorkPageContainer = styled.div`
   width: 100%;
   height: 100%;
+  background-color: white;
+  padding: 0 3rem 0 3rem;
+  h1 {
+    margin: 0;
+    padding: 3rem;
+  }
 `
 
 const Work = () => {
@@ -47,6 +53,7 @@ const Work = () => {
   console.log(WP)
   return (
     <WorkPageContainer>
+      <h1>(In Development)</h1>
       {/* <Project
         src="https://player.vimeo.com/video/500614330"
         firstName="Chad"
