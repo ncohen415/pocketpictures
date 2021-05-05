@@ -6,8 +6,11 @@ import styled from "styled-components"
 import AddToCart from "../Cart/addtocart"
 
 const ProductPageContainer = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
-  margin: 0 2.5rem 4rem 2.5rem;
+  background-color: white;
+  padding: 0 3rem 0 3rem;
   .image-wrapper {
     flex: 1 50%;
     img {

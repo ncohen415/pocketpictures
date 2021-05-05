@@ -8,9 +8,9 @@ import ProductDetail from "../components/Product/product-detail"
 const ProductPageTemplate = ({ data }) => {
   const product = data?.product?.edges[0]?.node || {}
   return (
-    <Layout>
+    <>
       <ProductDetail product={product} />
-    </Layout>
+    </>
   )
 }
 

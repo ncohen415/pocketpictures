@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 
 //Components
-import Project from "../components/WorkPage/project"
+// import Project from "../components/WorkPage/project"
 
 const WorkPageContainer = styled.div`
   width: 100%;
@@ -47,7 +47,7 @@ const Work = () => {
   console.log(WP)
   return (
     <WorkPageContainer>
-      <Project
+      {/* <Project
         src="https://player.vimeo.com/video/500614330"
         firstName="Chad"
         lastName="Douglass"
@@ -89,7 +89,7 @@ const Work = () => {
         img3={ProjectImages[18]}
         img4={ProjectImages[19]}
         img5={ProjectImages[15]}
-      />
+      /> */}
     </WorkPageContainer>
   )
 }

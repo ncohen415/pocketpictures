@@ -3,8 +3,8 @@ import React from "react"
 //Components
 import ProductDetail from "../components/Product/product-detail"
 
-const product = () => {
+const Product = () => {
   return <ProductDetail />
 }
 
-export default product
+export default Product
