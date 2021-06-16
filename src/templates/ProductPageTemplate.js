@@ -2,11 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 
 //Components
-import Layout from "../components/layout"
 import ProductDetail from "../components/Product/product-detail"
 
 const ProductPageTemplate = ({ data }) => {
+  console.log(data)
   const product = data?.product?.edges[0]?.node || {}
+
   return (
     <>
       <ProductDetail product={product} />
@@ -14,7 +15,7 @@ const ProductPageTemplate = ({ data }) => {
   )
 }
 
-export const query = graphql`
+export const data = graphql`
   query($handle: String!) {
     product: allShopifyProduct(filter: { handle: { eq: $handle } }) {
       edges {

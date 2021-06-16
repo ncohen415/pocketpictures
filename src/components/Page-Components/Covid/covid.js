@@ -73,38 +73,6 @@ const CovidPageContainer = styled.div`
 `
 
 const Covid = () => {
-  const data = useStaticQuery(graphql`
-    query CovidPageQuery {
-      wpPage(title: { eq: "Covid" }) {
-        title
-        CovidPageACF {
-          covidPageContent
-          contactLink
-          covidPageBlurb
-          covidPageHeading
-          imageSubHeader
-          imageSubText
-          processPageLink
-          email
-          covidPageImage {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  formats: WEBP
-                  layout: CONSTRAINED
-                  placeholder: BLURRED
-                )
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const covidACF = data?.wpPage?.CovidPageACF
-  const image = covidACF?.covidPageImage.localFile
-
   return (
     <CovidPageContainer>
       <SEO title="Covid-19" />

@@ -5,8 +5,9 @@ import { Link } from "gatsby"
 const MenuItemWrapper = styled.li`
   margin: 0;
   padding: 0.5rem;
-  font-size: 2vh;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: "Space Mono";
   a {
     text-decoration: none;
     color: inherit;

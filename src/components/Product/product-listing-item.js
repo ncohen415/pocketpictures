@@ -46,10 +46,14 @@ const ProductsListingItem = ({ product }) => {
     images: [firstImage],
     variants: [firstVariant],
   } = product
+
   return (
     <ProductContainer>
       <Link to={`/product/${product.handle}`} style={{ display: "block" }}>
-        <GatsbyImage image={getImage(firstImage?.localFile)} alt="bruh" />
+        <GatsbyImage
+          image={getImage(firstImage?.localFile)}
+          alt="Product Image"
+        />
       </Link>
       <div className="detail-wrapper">
         <h3>{product?.title}</h3>

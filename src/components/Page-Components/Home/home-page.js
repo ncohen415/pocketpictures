@@ -3,22 +3,34 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import SEO from "../../seo"
 
+import ProjectListing from "../../Filter/project-listing"
+
 const HomePageContainer = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
-  padding: 0 3rem 0 3rem;
-  .reel {
-    position: relative;
+  .home-page-heading {
     display: flex;
-    width: 100%;
-    .reel-wrapper {
-      width: 100%;
-      height: 100vh;
-      padding: 3rem;
-      display: flex;
-      justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+    h1 {
+      font-size: 60px;
+      font-weight: 400;
+      text-align: center;
+      font-family: "Neue Haas Grotesk";
     }
+    p {
+      font-size: 3vh;
+      opacity: 0.6;
+    }
+  }
+  .filter-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    min-height: 50vh;
   }
   .email-us {
     position: relative;
@@ -42,19 +54,16 @@ const HomePageContainer = styled.div`
 
 const Home = data => {
   const homeACF = data.data.wpPage.HomePageACF
+  const ProjectsACF = data.data.wpPage.ProjectsACF
+
   return (
     <HomePageContainer>
       <SEO title="Home" />
-      <section className="reel">
-        <div
-          dangerouslySetInnerHTML={{ __html: homeACF.reel }}
-          className="reel-wrapper"
-        />
-      </section>
-      <div className="email-us">
-        <h3>
-          <a href={homeACF.email}>{homeACF.contactLink}</a>
-        </h3>
+      <div className="home-page-heading">
+        <h1>{homeACF.heading}</h1>
+      </div>
+      <div class="filter-wrapper">
+        <ProjectListing projects={ProjectsACF} />
       </div>
     </HomePageContainer>
   )

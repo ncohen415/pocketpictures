@@ -3,7 +3,7 @@ const path = require("path")
 //CREATE INDIVIDUAL PRODUCT PAGES & WP PAGES
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const pages = await graphql(`
-    {
+    query DynamicPageQuery {
       allShopifyProduct {
         edges {
           node {
@@ -19,6 +19,13 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           }
         }
       }
+      allWpProject {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `)
   //Product Pages
@@ -28,6 +35,17 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       component: path.resolve("./src/templates/ProductPageTemplate.js"),
       context: {
         handle: edge.node.handle,
+      },
+    })
+  })
+
+  //Project Pages
+  pages.data.allWpProject.edges.forEach(edge => {
+    createPage({
+      path: `/project/${edge.node.slug}`,
+      component: path.resolve("./src/templates/ProjectPageTemplate.js"),
+      context: {
+        slug: edge.node.slug,
       },
     })
   })

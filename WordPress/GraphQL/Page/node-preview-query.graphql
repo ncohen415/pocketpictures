@@ -1,88 +1,15 @@
 query PREVIEW_QUERY($id: ID!) {
   page(id: $id, idType: ID, asPreview: true) {
     AboutPageACF {
-      aboutPageBlurb
-      aboutPageHeading
-      aboutPageSubHeading
-      contactLink
-      email
+      aboutPageCopy
+      contactUs
       fieldGroupName
-      fortunatelyWereBoth
-      selectedClients {
-        clientName
-        clientWebsite {
-          target
-          title
-          url
-        }
-        fieldGroupName
-        image {
-          __typename
-          id
-        }
-      }
-      selectedClientsHeading
-      staff {
-        fieldGroupName
-        portfolioLink {
-          target
-          title
-          url
-        }
-        staffName
-        staffRole
-      }
-      staffHeading
-      talent {
-        fieldGroupName
-        portfolioLink {
-          target
-          title
-          url
-        }
-        talentName
-        talentRole
-      }
-      talentHeading
-      workPageLink
-    }
-    CovidPageACF {
-      contactLink
-      covidPageBlurb
-      covidPageContent
-      covidPageHeading
-      covidPageImage {
-        __typename
-        id
-      }
-      email
-      fieldGroupName
-      imageSubHeader
-      imageSubText
-      processPageLink
-    }
-    FooterACF {
-      eastCoast
-      eastCoastAddress
-      fieldGroupName
-      footerImage {
-        __typename
-        id
-      }
-      westCoast
-      westCoastAddress
-    }
-    HeaderACF {
-      fieldGroupName
-      headerHomeLink
-      heading
-      subHeading
     }
     HomePageACF {
       contactLink
       email
       fieldGroupName
-      reel
+      heading
     }
     ancestors(first: 100) {
       nodes {
@@ -152,22 +79,6 @@ query PREVIEW_QUERY($id: ID!) {
     }
     parentDatabaseId
     parentId
-    processPageACF {
-      contactLink
-      creativeContent
-      creativeHeading
-      deliveryContent
-      deliveryHeading
-      email
-      fieldGroupName
-      processBlurb
-      processPageHeading
-      processPageSubHeading
-      productionPostContent
-      productionPostHeading
-      treatmentPlanningContent
-      treatmentPlanningHeading
-    }
     slug
     status
     template {

@@ -67,8 +67,9 @@ const ProductPageContainer = styled.div`
   }
 `
 
-export default function ProductDetail({ product }) {
+const ProductDetail = ({ product }) => {
   const [selectedVariant, setVariant] = useState(product?.variants[0])
+  console.log(product)
   return (
     <ProductPageContainer>
       <div className="image-wrapper">
@@ -108,3 +109,4 @@ export default function ProductDetail({ product }) {
     </ProductPageContainer>
   )
 }
+export default ProductDetail

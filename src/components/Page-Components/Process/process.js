@@ -68,31 +68,6 @@ const ProcessPageContainer = styled.div`
 `
 
 const Process = () => {
-  const data = useStaticQuery(graphql`
-    query ProcessPageQuery {
-      wpPage(title: { eq: "Process" }) {
-        title
-        processPageACF {
-          processPageHeading
-          processPageSubHeading
-          creativeHeading
-          creativeContent
-          treatmentPlanningHeading
-          treatmentPlanningContent
-          productionPostHeading
-          productionPostContent
-          deliveryHeading
-          deliveryContent
-          processBlurb
-          contactLink
-          email
-        }
-      }
-    }
-  `)
-
-  const processACF = data?.wpPage?.processPageACF
-
   return (
     <ProcessPageContainer>
       <SEO title="Process" />

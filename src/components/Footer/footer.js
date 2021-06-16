@@ -9,98 +9,64 @@ const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  height: 40vh;
-  background-color: black;
+  height: 125px;
+  background-color: white;
   .footer-wrapper {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 100%;
     padding: 0 2rem 0 2rem;
-    .west-coast {
+    .email-wrapper {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-start;
       width: 100%;
-      div {
-        display: flex;
-        flex-direction: column;
-        small {
-          color: white;
-          font-size: 1.5vh;
-        }
-        h3 {
-          color: white;
-          font-size: 4vh;
-        }
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: 15px;
+        font-family: "Space Mono";
       }
     }
-    .east-coast {
+    .back-to-top {
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
       width: 100%;
-      div {
-        display: flex;
-        flex-direction: column;
-        small {
-          color: white;
-          font-size: 1.5vh;
-        }
-        h3 {
-          color: white;
-          font-size: 4vh;
-        }
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        font-weight: 600px;
+        font-family: "Adobe Garamond";
       }
     }
-    .logo {
+    .blurb {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-end;
       width: 100%;
-      div {
-        display: flex;
-        flex-direction: column;
-        img {
-          width: 15vw;
-        }
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: 15px;
+        font-family: "Space Mono";
       }
     }
   }
 `
 
-const Footer = customFields => {
-  const footerACF = customFields.customFields
-  console.log(footerACF)
+const Footer = () => {
   return (
     <FooterContainer>
       <div className="footer-wrapper">
-        <div className="west-coast">
-          <div>
-            <small>{footerACF.westCoast}</small>
-            <h3>
-              <div
-                dangerouslySetInnerHTML={{ __html: footerACF.westCoastAddress }}
-              />
-            </h3>
-          </div>
+        <div class="email-wrapper">
+          <p>hello@pocketpictures.video</p>
         </div>
-        <div className="east-coast">
-          <div>
-            <small>{footerACF.eastCoast}</small>
-            <h3>
-              <div
-                dangerouslySetInnerHTML={{ __html: footerACF.eastCoastAddress }}
-              />
-            </h3>
-          </div>
+        <div class="back-to-top">
+          <p>Back to Top</p>
         </div>
-        <div className="logo">
-          <div>
-            <img src={Raymond} alt="" />
-          </div>
+        <div class="blurb">
+          <p>Come for the pictures. Stay for the people.</p>
         </div>
       </div>
     </FooterContainer>

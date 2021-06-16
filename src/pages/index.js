@@ -12,9 +12,9 @@ export const data = graphql`
     wpPage(title: { eq: "Home Page" }) {
       title
       HomePageACF {
-        reel
         email
         contactLink
+        heading
       }
     }
   }
