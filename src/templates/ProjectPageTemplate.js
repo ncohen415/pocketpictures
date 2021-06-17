@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 import SingleProject from "../components/Filter/single-project"
 
 const ProjectPageTemplate = ({ data }) => {
-  const project = data?.project?.edges[0].node || {}
+  const project = data?.project?.edges[0]?.node || {}
   return (
     <>
       <SingleProject project={project} />

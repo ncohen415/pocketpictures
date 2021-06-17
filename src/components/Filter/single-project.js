@@ -29,21 +29,21 @@ const ProjectContainer = styled.div`
 `
 
 const SingleProject = ({ project }) => {
-  const customFields = project.ProjectsACF
-
-  console.log(customFields)
+  const customFields = project?.ProjectsACF
   return (
     <ProjectContainer>
       <div class="video-wrapper">
         <div
           className="video"
-          style={{ width: customFields.aspectRatioWidth < 16 ? "70%" : "100%" }}
-          dangerouslySetInnerHTML={{ __html: customFields.video }}
+          style={{
+            width: customFields?.aspectRatioWidth < 16 ? "70%" : "100%",
+          }}
+          dangerouslySetInnerHTML={{ __html: customFields?.video }}
         />
       </div>
       <div class="project-info">
-        <h1 className="title">{project.title}</h1>
-        <p className="description">{customFields.description}</p>
+        <h1 className="title">{project?.title}</h1>
+        <p className="description">{customFields?.description}</p>
       </div>
     </ProjectContainer>
   )
