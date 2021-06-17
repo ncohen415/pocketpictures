@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 
 const ProjectContainer = styled.div`
   width: 100%;
@@ -26,6 +27,15 @@ const ProjectContainer = styled.div`
       padding: 0 0 0 2rem;
     }
   }
+  .project-stills-wrapper {
+    width: 100%;
+    .stills-inner-wrapper {
+      column-count: 3;
+      column-gap: 0.4rem;
+      .image-wrapper {
+      }
+    }
+  }
 `
 
 const SingleProject = ({ project }) => {
@@ -36,7 +46,7 @@ const SingleProject = ({ project }) => {
         <div
           className="video"
           style={{
-            width: customFields?.aspectRatioWidth < 16 ? "70%" : "100%",
+            width: customFields?.aspectRatioWidth < 16 ? "75%" : "100%",
           }}
           dangerouslySetInnerHTML={{ __html: customFields?.video }}
         />
@@ -44,6 +54,17 @@ const SingleProject = ({ project }) => {
       <div class="project-info">
         <h1 className="title">{project?.title}</h1>
         <p className="description">{customFields?.description}</p>
+      </div>
+      <div className="project-stills-wrapper">
+        <div class="stills-inner-wrapper">
+          {customFields?.stills?.map(still => {
+            return (
+              <div class="image-wrapper">
+                <GatsbyImage image={getImage(still.projectStills.localFile)} />
+              </div>
+            )
+          })}
+        </div>
       </div>
     </ProjectContainer>
   )

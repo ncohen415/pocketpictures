@@ -63,11 +63,11 @@ const Container = styled.div`
   .projects-wrapper {
     width: 100%;
     height: 100%;
-    min-height: 80vh;
+    min-height: 60vh;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
   }
 `
 
@@ -121,11 +121,13 @@ const ProjectListing = () => {
 
   const projects = data.allWpProject.edges
   const [videoGenres, setVideoGenres] = useState([])
-  const [filterValue, setFilterValue] = useState("")
+  const [filterValue, setFilterValue] = useState("Latest")
   const [sortedProjects, setSortedProjects] = useState([])
 
   useEffect(() => {
     let listOfGenres = []
+
+    //Sort projects chronologically
     function compare(a, b) {
       if (
         new Date(a.node.ProjectsACF.productionDate).getTime() <
@@ -145,6 +147,18 @@ const ProjectListing = () => {
     //Get Genres
     sortedProjects.map(project => {
       let genre = project.node.ProjectsACF.videoGenre
+      const first = sortedProjects[0]
+      const second = sortedProjects[1]
+      const third = sortedProjects[2]
+
+      if (project === first) {
+        genre = "Latest"
+      } else if (project === second) {
+        genre = "Latest"
+      } else if (project === third) {
+        genre = "Latest"
+      }
+
       if (!listOfGenres.includes(genre)) {
         listOfGenres.push(genre)
       }
@@ -166,13 +180,22 @@ const ProjectListing = () => {
         })}
       </ul>
       <div className="projects-wrapper">
-        {sortedProjects.map(project => {
-          if (project.node.ProjectsACF.videoGenre === filterValue) {
-            return (
-              <ProjectListingItem key={project.node.slug} project={project} />
-            )
-          }
-        })}
+        {filterValue === "Latest"
+          ? sortedProjects.slice(0, 3).map(project => {
+              return (
+                <ProjectListingItem key={project.node.slug} project={project} />
+              )
+            })
+          : sortedProjects.map(project => {
+              if (filterValue === project.node.ProjectsACF.videoGenre) {
+                return (
+                  <ProjectListingItem
+                    key={project.node.slug}
+                    project={project}
+                  />
+                )
+              }
+            })}
       </div>
     </Container>
   )

@@ -48,8 +48,6 @@ const ProjectListingItem = ({ project }) => {
   const genre = project.node.ProjectsACF.videoGenre
   const title = project.node.title
 
-  console.log(project)
-
   return (
     <ProjectContainer>
       <Link to={`/project/${project.node.slug}`}>

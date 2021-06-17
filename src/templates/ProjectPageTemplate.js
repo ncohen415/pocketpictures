@@ -25,6 +25,7 @@ export const data = graphql`
             videoGenre
             aspectRatioHeight
             aspectRatioWidth
+            description
             productionDate
             thumbnailImage {
               localFile {

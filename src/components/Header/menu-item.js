@@ -11,8 +11,30 @@ const MenuItemWrapper = styled.li`
   a {
     text-decoration: none;
     color: inherit;
-    &:hover {
-      text-decoration: underline;
+    .strike-through {
+      display: inline;
+      position: relative;
+      overflow: hidden;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: 8px;
+        background: #e84b4c;
+        height: 2px;
+        z-index: -1;
+        transition-duration: 0.2s;
+      }
+      &:hover:after {
+        right: 0;
+      }
+      &:focus:after {
+        right: 0;
+      }
+      &:active:after {
+        right: 0;
+      }
     }
   }
   img {
@@ -24,7 +46,9 @@ const MenuItemWrapper = styled.li`
 const MenuItem = ({ menuItem }) => {
   return (
     <MenuItemWrapper>
-      <Link to={menuItem.url}>{menuItem.label}</Link>
+      <Link to={menuItem.url}>
+        <div class="strike-through"> {menuItem.label}</div>
+      </Link>
     </MenuItemWrapper>
   )
 }
