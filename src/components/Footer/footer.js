@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 //Images
-import Raymond from "../../images/raymond.jpg"
+import ArrowUp from "../../images/arrow-up.svg"
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -31,14 +31,24 @@ const FooterContainer = styled.footer`
     }
     .back-to-top {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      /* justify-content: center; */
       width: 100%;
-      p {
+      img {
+        padding: 0;
+        margin-bottom: 0.5rem;
+      }
+      button {
         margin: 0;
         padding: 0;
         font-size: 30px;
         font-weight: 600px;
         font-family: "Adobe Garamond";
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
       }
     }
     .blurb {
@@ -54,6 +64,9 @@ const FooterContainer = styled.footer`
     }
   }
 `
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}
 
 const Footer = () => {
   return (
@@ -63,7 +76,8 @@ const Footer = () => {
           <p>hello@pocketpictures.video</p>
         </div>
         <div class="back-to-top">
-          <p>Back to Top</p>
+          <img src={ArrowUp} alt="Up Arrow" />
+          <button onClick={() => scrollToTop()}>Back to Top</button>
         </div>
         <div class="blurb">
           <p>Come for the pictures. Stay for the people.</p>

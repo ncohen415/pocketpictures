@@ -85,7 +85,7 @@ const ProjectListing = () => {
               aspectRatioHeight
               aspectRatioWidth
               description
-              productionDate
+              featured
               thumbnailImage {
                 localFile {
                   childImageSharp {
@@ -121,50 +121,31 @@ const ProjectListing = () => {
 
   const projects = data.allWpProject.edges
   const [videoGenres, setVideoGenres] = useState([])
-  const [filterValue, setFilterValue] = useState("Latest")
-  const [sortedProjects, setSortedProjects] = useState([])
+  const [filterValue, setFilterValue] = useState("Featured")
+  const [featuredProjects, setFeaturedProjects] = useState([])
 
   useEffect(() => {
-    let listOfGenres = []
-
-    //Sort projects chronologically
-    function compare(a, b) {
-      if (
-        new Date(a.node.ProjectsACF.productionDate).getTime() <
-        new Date(b.node.ProjectsACF.productionDate).getTime()
-      )
-        return 1
-      if (
-        new Date(b.node.ProjectsACF.productionDate).getTime() <
-        new Date(a.node.ProjectsACF.productionDate).getTime()
-      )
-        return -1
-
-      return 0
-    }
-    setSortedProjects(projects.sort(compare))
+    let listOfGenres = ["Featured"]
+    let listOfFeaturedProjects = []
 
     //Get Genres
-    sortedProjects.map(project => {
+    projects.map(project => {
+      let featuredProject = project.node.ProjectsACF.featured
       let genre = project.node.ProjectsACF.videoGenre
-      const first = sortedProjects[0]
-      const second = sortedProjects[1]
-      const third = sortedProjects[2]
 
-      if (project === first) {
-        genre = "Latest"
-      } else if (project === second) {
-        genre = "Latest"
-      } else if (project === third) {
-        genre = "Latest"
+      if (featuredProject === true) {
+        genre = "Featured"
+        listOfFeaturedProjects.push(project)
+        setFeaturedProjects(listOfFeaturedProjects)
       }
 
       if (!listOfGenres.includes(genre)) {
         listOfGenres.push(genre)
       }
+
       setVideoGenres(listOfGenres)
     })
-  }, [sortedProjects])
+  }, [projects])
 
   return (
     <Container>
@@ -180,13 +161,13 @@ const ProjectListing = () => {
         })}
       </ul>
       <div className="projects-wrapper">
-        {filterValue === "Latest"
-          ? sortedProjects.slice(0, 3).map(project => {
+        {filterValue === "Featured"
+          ? featuredProjects.map(project => {
               return (
                 <ProjectListingItem key={project.node.slug} project={project} />
               )
             })
-          : sortedProjects.map(project => {
+          : projects.map(project => {
               if (filterValue === project.node.ProjectsACF.videoGenre) {
                 return (
                   <ProjectListingItem

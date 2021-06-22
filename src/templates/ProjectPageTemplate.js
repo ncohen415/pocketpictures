@@ -26,7 +26,7 @@ export const data = graphql`
             aspectRatioHeight
             aspectRatioWidth
             description
-            productionDate
+            featured
             thumbnailImage {
               localFile {
                 childImageSharp {

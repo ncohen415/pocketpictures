@@ -5,19 +5,18 @@ import SEO from "../../seo"
 //Components
 import ProductsListing from "../../Product/products-listing"
 
-const MerchPageContainer = styled.div`
+const ShopPageContainer = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
-  padding: 0 3rem 0 3rem;
 `
 
 const Merch = () => {
   return (
-    <MerchPageContainer>
-      <SEO title="Merch" />
+    <ShopPageContainer>
+      <SEO title="Shop" />
       <ProductsListing />
-    </MerchPageContainer>
+    </ShopPageContainer>
   )
 }
 

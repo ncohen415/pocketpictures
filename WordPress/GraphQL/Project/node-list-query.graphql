@@ -5,8 +5,8 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         aspectRatioHeight
         aspectRatioWidth
         description
+        featured
         fieldGroupName
-        productionDate
         stills {
           fieldGroupName
           projectStills {

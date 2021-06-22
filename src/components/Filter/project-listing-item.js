@@ -14,7 +14,6 @@ const ProjectContainer = styled.div`
   a {
     text-decoration: none;
     color: inherit;
-
     .project-inner-wrapper {
       display: flex;
       flex-direction: column;

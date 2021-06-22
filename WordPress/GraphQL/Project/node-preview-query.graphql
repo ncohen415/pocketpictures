@@ -4,8 +4,8 @@ query PREVIEW_QUERY($id: ID!) {
       aspectRatioHeight
       aspectRatioWidth
       description
+      featured
       fieldGroupName
-      productionDate
       stills {
         fieldGroupName
         projectStills {
