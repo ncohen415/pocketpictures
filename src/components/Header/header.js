@@ -49,8 +49,6 @@ const HeaderContainer = styled.header`
         display: flex;
         flex: 1 33%;
         justify-content: flex-end;
-        align-items: center;
-        width: 100%;
         overflow: visible;
         button {
           position: relative;
