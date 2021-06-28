@@ -21,11 +21,18 @@ const CartIconContainer = styled.div`
     margin: 0 0.5rem 0 0;
     padding: 0;
   }
-  .cart-counter {
-    font-family: "Space Mono";
+  .counter-wrapper {
+    display: flex;
+    flex: 0 1 50%;
     font-size: 15px;
-    margin: 0;
-    padding: 0;
+    .cart-counter {
+      flex: 0 1 50%;
+      font-family: "Space Mono";
+      font-size: 15px;
+      color: #e84b4c;
+      margin: 0;
+      padding: 0;
+    }
   }
 `
 
@@ -37,7 +44,13 @@ const CartIcon = () => {
   return (
     <CartIconContainer>
       <p className="cart">Cart</p>
-      {qty === 0 ? "" : <p className="cart-counter">({qty})</p>}
+      {qty === 0 ? (
+        ""
+      ) : (
+        <div class="counter-wrapper">
+          (<p className="cart-counter">{qty}</p>)
+        </div>
+      )}
     </CartIconContainer>
   )
 }

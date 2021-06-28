@@ -13,7 +13,6 @@ const ProductContainer = styled.div`
   a {
     text-decoration: none;
     color: black;
-
     .inner-wrapper {
       display: flex;
       flex-direction: column;

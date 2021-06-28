@@ -111,22 +111,21 @@ const CartContainer = styled(motion.div)`
       text-decoration: none;
       color: inherit;
       button {
-        width: 100%;
+        font-family: "Space Mono";
         cursor: pointer;
         text-align: center;
-        font-size: 2.5vh;
+        font-size: 15px;
         line-height: 2;
-        font-weight: 700;
-        background-color: white;
-        color: black;
+        background-color: black;
+        color: white;
         border: 2px solid black;
         border-radius: 2px;
         padding: 1vh 2vh;
         transition: 0.1s ease-in-out;
         outline: none;
         &:hover {
-          box-shadow: 5px -5px 1px rgba(0, 0, 0, 0.7),
-            -5px 5px 1px rgba(237, 64, 64, 0.9);
+          background-color: white;
+          color: black;
         }
       }
     }
@@ -238,6 +237,7 @@ const Cart = () => {
   const promoApplied = () => {
     return <p>hi</p>
   }
+
   return (
     <CartContainer
       key="cart-container"
