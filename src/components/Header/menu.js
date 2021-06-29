@@ -16,12 +16,18 @@ const MenuWrapper = styled.nav`
     padding: 0;
   }
 `
-const Menu = ({ menu }) => {
+const Menu = ({ menu, mobileNavOpen, toggleMenu }) => {
   return (
     <MenuWrapper>
       <ul className="nav">
         {menu.map(menuItem => {
-          return <MenuItem menuItem={menuItem} />
+          return (
+            <MenuItem
+              mobileNavOpen={mobileNavOpen}
+              toggleMenu={toggleMenu}
+              menuItem={menuItem}
+            />
+          )
         })}
       </ul>
     </MenuWrapper>

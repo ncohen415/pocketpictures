@@ -2,7 +2,9 @@ import * as React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import SEO from "../../seo"
+import { media } from "../../mq"
 
+//Components
 import ProjectListing from "../../Filter/project-listing"
 
 const HomePageContainer = styled.div`
@@ -13,12 +15,14 @@ const HomePageContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5rem;
+    padding: 2rem 0 2rem 0;
+    ${media.medium`padding: 5rem;`}
     h1 {
-      font-size: 60px;
+      font-size: 45px;
       font-weight: 400;
       text-align: center;
       font-family: "Neue Haas Grotesk";
+      ${media.smallMedium`font-size: 60px;`}
     }
     p {
       font-size: 3vh;

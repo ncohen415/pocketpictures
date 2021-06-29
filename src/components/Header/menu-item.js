@@ -43,9 +43,11 @@ const MenuItemWrapper = styled.li`
   }
 `
 
-const MenuItem = ({ menuItem }) => {
+const MenuItem = ({ menuItem, mobileNavOpen, toggleMenu }) => {
   return (
-    <MenuItemWrapper>
+    <MenuItemWrapper
+      onClick={mobileNavOpen === true ? () => toggleMenu() : null}
+    >
       <Link to={menuItem.url}>
         <div class="strike-through"> {menuItem.label}</div>
       </Link>

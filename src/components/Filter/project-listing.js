@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
+import { media } from "../mq"
 
 //components
 import ProjectListingItem from "./project-listing-item"
@@ -11,17 +12,21 @@ const Container = styled.div`
   align-items: center;
   ul {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     list-style: none;
     width: 100%;
     margin: 0;
     padding: 2rem 0 2rem 0;
     justify-content: center;
+    ${media.medium`flex-direction: row;`}
     li {
       display: flex;
       justify-content: center;
       min-width: 210px;
-      margin: 0;
+      margin: 1rem 0 1rem 0;
       padding: 0 2rem 0 2rem;
+      ${media.medium`margin: 0;`}
       button {
         background: none;
         color: inherit;
@@ -32,6 +37,9 @@ const Container = styled.div`
         font-family: "Neue Haas Grotesk Bold";
         font-size: 25px;
         z-index: 1;
+        ${media.small`font-size: 35px;`}
+        ${media.smallMedium`font-size: 45px;`}
+        ${media.medium`font-size: 25px;`}
         .strike-through {
           display: inline;
           position: relative;
@@ -61,13 +69,15 @@ const Container = styled.div`
     }
   }
   .projects-wrapper {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
-    min-height: 60vh;
-    display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
+    margin-bottom: 4rem;
+    ${media.medium`flex-direction: row;`}
   }
 `
 
