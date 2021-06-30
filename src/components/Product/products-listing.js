@@ -2,12 +2,15 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import ProductsListingItem from "./product-listing-item"
 import styled from "styled-components"
+import { media } from "../mq"
 
 const ProductListingContainer = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  ${media.smallMedium`flex-wrap: wrap; flex-direction: row;`}
 `
 
 const ProductsListing = () => {

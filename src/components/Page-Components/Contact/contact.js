@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import SEO from "../../seo"
+import { media } from "../../mq"
 
 const ContactPageContainer = styled.div`
   width: 100%;
@@ -13,11 +14,16 @@ const ContactPageContainer = styled.div`
   .email-wrapper {
     flex: 1 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     h1 {
+      width: 100%;
+      text-align: center;
       font-family: "Adobe Garamond";
-      font-size: 60px;
+      font-size: 18px;
+      ${media.small`font-size: 45px;`}
+      ${media.medium`font-size: 60px;`}
+      /* font-size: 60px; */
       a {
         color: inherit;
         text-decoration: none;
@@ -53,9 +59,11 @@ const ContactPageContainer = styled.div`
   .offices {
     flex: 1 50%;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    ${media.small`flex-direction: row;`}
     .west-coast {
-      flex: 0 1 50%;
+      flex: 1 1 50%;
       .west-inner-wrapper {
         display: flex;
         flex-direction: column;
@@ -74,7 +82,7 @@ const ContactPageContainer = styled.div`
       }
     }
     .east-coast {
-      flex: 0 1 50%;
+      flex: 1 1 50%;
       .east-inner-wrapper {
         display: flex;
         flex-direction: column;

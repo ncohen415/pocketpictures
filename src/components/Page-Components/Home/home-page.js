@@ -18,10 +18,11 @@ const HomePageContainer = styled.div`
     padding: 2rem 0 2rem 0;
     ${media.medium`padding: 5rem;`}
     h1 {
-      font-size: 45px;
+      font-size: 30px;
       font-weight: 400;
       text-align: center;
       font-family: "Neue Haas Grotesk";
+      ${media.small`font-size: 45px;`}
       ${media.smallMedium`font-size: 60px;`}
     }
     p {

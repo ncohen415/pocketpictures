@@ -65,7 +65,7 @@ const HeaderContainer = styled.header`
         .cart {
           display: block;
           position: relative;
-          margin: 0;
+          margin: 0 0.5rem 0 0;
           padding: 0;
           background: transparent;
           border: none;
@@ -78,9 +78,9 @@ const HeaderContainer = styled.header`
         }
         .mobile-button {
           display: block;
-          flex: 0 1 25%;
           align-self: center;
-          margin: 0;
+          margin: 0 0 0 0.5rem;
+          padding: 0;
           border: 0;
           background-color: transparent;
           outline: none;
@@ -139,7 +139,12 @@ const Header = ({ mobileNavOpen, toggleMenu }) => {
           </div>
           <div className="cart-mobile-wrapper">
             <button
-              className={location.pathname !== "/shop" ? "cart active" : "cart"}
+              className={
+                location.pathname !== "/shop" ||
+                location.href.includes("product")
+                  ? "cart active"
+                  : "cart"
+              }
               onClick={toggleCartOpen}
             >
               <CartIcon />

@@ -2,11 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import { media } from "../mq"
 
 const ProductContainer = styled.div`
-  flex: 0 1 33.33333333%;
+  flex: 0 1 50%;
   margin: 2rem 0 2rem 0;
   transition: 0.2s;
+  ${media.medium`flex: 0 1 33.33333333%;`}
   &:hover {
     opacity: 0.8;
   }

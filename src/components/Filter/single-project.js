@@ -1,10 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { media } from "../mq"
 
 const ProjectContainer = styled.div`
   width: 100%;
   height: 100%;
+  margin-bottom: 4rem;
+  ${media.medium`margin-bottom: 0;`}
   .video-wrapper {
     display: flex;
     flex-direction: column;
@@ -12,19 +15,23 @@ const ProjectContainer = styled.div`
     width: 100%;
     position: relative;
     overflow: hidden;
-    padding: 2rem 0 2rem 0;
+    margin-bottom: 2rem;
+    ${media.medium`padding: 2rem 0 2rem 0; margin-bottom: 0;`}
   }
   .project-info {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 2rem 0 2rem 0;
+    ${media.medium`padding: 2rem 0 2rem 0; flex-direction: row;`}
     .title {
       flex: 0 1 50%;
-      padding: 0 2rem 0 0;
+      text-align: center;
+      ${media.medium`padding: 0 2rem 0 0; text-align: left;`}
     }
     .description {
       flex: 0 1 50%;
-      padding: 0 0 0 2rem;
+      text-align: center;
+      ${media.medium`padding: 0 2rem 0 0; text-align: left;`}
     }
   }
   .project-stills-wrapper {

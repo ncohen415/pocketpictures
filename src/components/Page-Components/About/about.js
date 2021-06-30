@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import SEO from "../../seo"
+import { media } from "../../mq"
 
 //Components
 import Staff from "./staff"
@@ -16,20 +17,22 @@ const AboutPageContainer = styled.div`
   background-color: white;
   .copy-wrapper {
     h1 {
-      padding: 5rem;
-      font-size: 60px;
+      font-size: 30px;
       font-weight: 400;
       text-align: center;
       font-family: "Neue Haas Grotesk";
+      ${media.small`font-size: 45px;`}
+      ${media.smallMedium`font-size: 60px; padding: 5rem;`}
     }
   }
   .email-wrapper {
     width: 100%;
     h2 {
-      font-size: 60px;
+      font-size: 45px;
       font-weight: 400;
       text-align: center;
       font-family: "Neue Haas Grotesk Bold";
+      ${media.smallMedium`font-size: 60px;`}
       a {
         color: inherit;
         text-decoration: none;
@@ -85,6 +88,8 @@ const About = () => {
           <div dangerouslySetInnerHTML={{ __html: aboutACF.aboutPageCopy }} />
         </h1>
       </div>
+      <br />
+      <br />
       <div class="email-wrapper">
         <h2>
           <a href="/contact">
@@ -92,6 +97,8 @@ const About = () => {
           </a>
         </h2>
       </div>
+      <br />
+      <br />
     </AboutPageContainer>
   )
 }

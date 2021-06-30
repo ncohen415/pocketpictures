@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import { media } from "../mq"
 
 //Components
 import AddToCart from "../Cart/addtocart"
@@ -14,118 +15,132 @@ const ProductPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 0 3rem 0 3rem;
+  ${media.smallMedium`padding: 0 3rem 0 3rem;`}
   .image-wrapper {
     display: flex;
     justify-content: center;
-    margin: 0 0 3rem 0;
+    margin-bottom: 2rem;
     .gatsby-image-wrapper {
       aspect-ratio: 1;
-      height: 85vh;
+      ${media.smallMedium`height:70vh;`}
     }
   }
   .info-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin: 0 0 3rem 0;
-    .title-description {
+    .title-price {
       display: flex;
       flex: 0 1 50%;
-      flex-direction: column;
-      justify-content: flex-start;
-      margin: 0 1rem 0 0;
+      justify-content: space-between;
     }
-    .price-size {
+    .description-shop {
       display: flex;
-      flex: 0 1 50%;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
       width: 100%;
-      margin: 0 0 0 1rem;
-
-      .custom-select-wrapper {
-        position: relative;
-        user-select: none;
+      ${media.smallMedium`flex-direction: row;`}
+      .description {
+        display: flex;
+        flex: 0 1 60%;
         width: 100%;
-        margin: 0 0 1.45rem 0;
-        .custom-select {
+        ${media.smallMedium`margin: 0 0.75rem 0 0;`}
+      }
+      .variant-addtocart {
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 40%;
+        width: 100%;
+        margin-bottom: 4rem;
+        ${media.smallMedium`margin: 0 0 0 0.75rem;`}
+
+        .custom-select-wrapper {
           position: relative;
-          display: flex;
-          flex-direction: column;
-          border-width: 0 2px 0 2px;
-          border-style: solid;
-          border-color: #000000;
-          .select-trigger {
+          user-select: none;
+          width: 100%;
+          margin: 0 0 1.45rem 0;
+          .custom-select {
             position: relative;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 22px;
-            font-size: 15px;
-            font-weight: 300;
-            color: #000000;
-            height: 60px;
-            line-height: 60px;
-            background: #ffffff;
-            cursor: pointer;
-            border-width: 2px 0 2px 0;
+            flex-direction: column;
+            border-width: 0 2px 0 2px;
             border-style: solid;
             border-color: #000000;
-            font-family: "Space Mono";
-            .arrow {
+            .select-trigger {
               position: relative;
-              height: 25px;
-              width: 25px;
-              margin: 0;
-            }
-          }
-          .custom-options {
-            position: absolute;
-            display: block;
-            top: 100%;
-            left: 0;
-            right: 0;
-            border: 2px solid #000000;
-            border-top: 0;
-            background: #fff;
-            transition: ease-in-out 0.2s;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            z-index: 2;
-            &.open {
-              opacity: 1;
-              visibility: visible;
-              pointer-events: all;
-            }
-            .custom-option {
-              position: relative;
-              display: block;
-              padding: 0 22px 0 22px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 0 22px;
               font-size: 15px;
               font-weight: 300;
               color: #000000;
+              height: 60px;
               line-height: 60px;
+              background: #ffffff;
               cursor: pointer;
-              transition: ease-in-out 0.2s;
+              border-width: 2px 0 2px 0;
+              border-style: solid;
+              border-color: #000000;
               font-family: "Space Mono";
-              &:hover {
-                cursor: pointer;
-                background-color: #ededed;
+              ${media.xsmall`font-size: 20px;`}
+              ${media.large`font-size: 15px;`}
+              .arrow {
+                position: relative;
+                height: 25px;
+                width: 25px;
+                margin: 0;
               }
-              &.selected {
-                color: #ffffff;
-                background-color: #e84b4c;
+            }
+            .custom-options {
+              position: absolute;
+              display: block;
+              top: 100%;
+              left: 0;
+              right: 0;
+              border: 2px solid #000000;
+              border-top: 0;
+              background: #fff;
+              transition: ease-in-out 0.2s;
+              opacity: 0;
+              visibility: hidden;
+              pointer-events: none;
+              z-index: 2;
+              &.open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: all;
+              }
+              .custom-option {
+                position: relative;
+                display: block;
+                padding: 0 22px 0 22px;
+                font-size: 15px;
+                font-weight: 300;
+                color: #000000;
+                line-height: 60px;
+                cursor: pointer;
+                transition: ease-in-out 0.2s;
+                font-family: "Space Mono";
+                ${media.xsmall`font-size: 20px;`}
+                ${media.medium`font-size: 15px;`}
+                &:hover {
+                  cursor: pointer;
+                  background-color: #ededed;
+                }
+                &.selected {
+                  color: #ffffff;
+                  background-color: #e84b4c;
+                }
               }
             }
           }
         }
-      }
-      button {
-        width: 100%;
-        height: 55px;
-        margin: 0 0 1rem 0;
-        font-family: "Space Mono";
+        .addtocart {
+          width: 100%;
+          height: 60px;
+          font-family: "Space Mono";
+        }
       }
     }
   }
@@ -155,61 +170,72 @@ const ProductDetail = ({ product }) => {
           alt="bruh"
         />
       </div>
+
       <div className="info-wrapper">
-        <div className="title-description">
+        <div className="title-price">
           <h1>{product?.title}</h1>
-          <p>{product?.description}</p>
+          <h1 className="price">${selectedVariant?.price}</h1>
         </div>
 
-        <div className="price-size">
-          <h1 className="price">${selectedVariant?.price}</h1>
-          {selectedVariant?.title === "Default Title" ? (
-            ""
-          ) : (
-            <div
-              className="custom-select-wrapper"
-              onClick={() => toggleSelectOpen()}
-            >
-              <div className="custom-select">
-                <div className="select-trigger">
-                  <span value={selectedVariant?.sku}>
-                    {selectedVariant?.title}
-                  </span>
-                  <img className="arrow" src={ChevronDown} alt="Chevron Down" />
-                </div>
-                <div
-                  className={
-                    selectOpen === true
-                      ? "custom-options open"
-                      : "custom-options"
-                  }
-                  onChange={e => {
-                    const selected = product?.variants?.filter(
-                      variant => variant?.sku === e.target.value
-                    )
-                    setVariant(selected[0])
-                  }}
-                  value={selectedVariant?.sku}
-                >
-                  {product?.variants?.map(variant => (
-                    <span
-                      onClick={variantSelected(variant)}
-                      className={
-                        selectedVariant === variant
-                          ? "custom-option selected"
-                          : "custom-option"
-                      }
-                      value={variant?.sku}
-                      key={variant?.id}
-                    >
-                      {variant?.title}
+        <div className="description-shop">
+          <div class="description">
+            <p>{product?.description}</p>
+          </div>
+          <div class="variant-addtocart">
+            {selectedVariant?.title === "Default Title" ? (
+              ""
+            ) : (
+              <div
+                className="custom-select-wrapper"
+                onClick={() => toggleSelectOpen()}
+              >
+                <div className="custom-select">
+                  <div className="select-trigger">
+                    <span value={selectedVariant?.sku}>
+                      {selectedVariant?.title}
                     </span>
-                  ))}
+                    <img
+                      className="arrow"
+                      src={ChevronDown}
+                      alt="Chevron Down"
+                    />
+                  </div>
+                  <div
+                    className={
+                      selectOpen === true
+                        ? "custom-options open"
+                        : "custom-options"
+                    }
+                    onChange={e => {
+                      const selected = product?.variants?.filter(
+                        variant => variant?.sku === e.target.value
+                      )
+                      setVariant(selected[0])
+                    }}
+                    value={selectedVariant?.sku}
+                  >
+                    {product?.variants?.map(variant => (
+                      <span
+                        onClick={variantSelected(variant)}
+                        className={
+                          selectedVariant === variant
+                            ? "custom-option selected"
+                            : "custom-option"
+                        }
+                        value={variant?.sku}
+                        key={variant?.id}
+                      >
+                        {variant?.title}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
+            )}
+            <div class="addtocart">
+              <AddToCart variantId={selectedVariant?.shopifyId} />
             </div>
-          )}
-          <AddToCart variantId={selectedVariant?.shopifyId} />
+          </div>
         </div>
       </div>
     </ProductPageContainer>

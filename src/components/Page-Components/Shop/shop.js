@@ -16,6 +16,8 @@ const Merch = () => {
     <ShopPageContainer>
       <SEO title="Shop" />
       <ProductsListing />
+      <br />
+      <br />
     </ShopPageContainer>
   )
 }

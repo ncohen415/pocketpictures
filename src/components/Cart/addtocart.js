@@ -1,19 +1,23 @@
 import React, { useContext } from "react"
 import { StoreContext } from "../../context/StoreContext"
 import styled from "styled-components"
+import { media } from "../mq"
 
 const AddToCartButton = styled.button`
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 15px;
   line-height: 2;
   background-color: black;
   color: white;
   border: 2px solid black;
   border-radius: 2px;
-  padding: 1vh 2vh;
   transition: 0.1s ease-in-out;
   outline: none;
+  ${media.xsmall`font-size: 20px;`}
+  ${media.large`font-size: 15px;`}
   &:hover {
     background-color: white;
     color: black;
