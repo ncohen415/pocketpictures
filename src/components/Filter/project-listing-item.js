@@ -8,16 +8,19 @@ const ProjectContainer = styled.div`
   flex: 0 1 33.33%;
   padding: 1rem;
   transition: 0.2s;
+  width: 100%;
   &:hover {
     opacity: 0.8;
   }
   a {
     text-decoration: none;
     color: inherit;
+    width: 100%;
     .project-inner-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
       .thumbnal-wrapper {
         width: 100%;
         height: 100%;
