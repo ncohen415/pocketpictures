@@ -139,12 +139,7 @@ const Header = ({ mobileNavOpen, toggleMenu }) => {
           </div>
           <div className="cart-mobile-wrapper">
             <button
-              className={
-                location.pathname !== "/shop" ||
-                location.href.includes("product")
-                  ? "cart active"
-                  : "cart"
-              }
+              className={location.pathname !== "/shop" ? "cart active" : "cart"}
               onClick={toggleCartOpen}
             >
               <CartIcon />
