@@ -21,7 +21,7 @@ const ProjectContainer = styled.div`
       flex-direction: column;
       align-items: center;
       width: 100%;
-      .thumbnal-wrapper {
+      .thumbnail-wrapper {
         width: 100%;
         height: 100%;
         .gatsby-image-wrapper {
