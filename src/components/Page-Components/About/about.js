@@ -9,8 +9,6 @@ import Staff from "./staff"
 import Talent from "./talent"
 import Client from "./client"
 
-// import ChevronRight from "../images/double-chevron-right.svg"
-
 const AboutPageContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -33,34 +31,30 @@ const AboutPageContainer = styled.div`
       text-align: center;
       font-family: "Neue Haas Grotesk Bold";
       ${media.smallMedium`font-size: 60px;`}
-      a {
+      .strike-through {
+        display: inline;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
         color: inherit;
         text-decoration: none;
-        .strike-through {
-          display: inline;
-          position: relative;
-          overflow: hidden;
-          z-index: 1;
-          &:after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 100%;
-            bottom: 27px;
-            background: #e84b4c;
-            height: 7px;
-            z-index: -1;
-            transition-duration: 0.2s;
-          }
-          &:hover:after {
-            right: 0;
-          }
-          &:focus:after {
-            right: 0;
-          }
-          &:active:after {
-            right: 0;
-          }
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 100%;
+          bottom: 21px;
+          background: #e84b4c;
+          height: 5px;
+          z-index: -1;
+          transition-duration: 0.2s;
+          ${media.smallMedium`bottom: 27px; height: 7px;`}
+        }
+        &:hover:after {
+          right: 0;
+        }
+        &.active:after {
+          right: 0;
         }
       }
     }
@@ -92,8 +86,8 @@ const About = () => {
       <br />
       <div class="email-wrapper">
         <h2>
-          <a href="/contact">
-            <div class="strike-through">{aboutACF.contactUs}</div>
+          <a href="/contact" className="strike-through">
+            {aboutACF.contactUs}
           </a>
         </h2>
       </div>

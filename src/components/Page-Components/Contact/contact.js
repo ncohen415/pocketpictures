@@ -23,7 +23,6 @@ const ContactPageContainer = styled.div`
       font-size: 18px;
       ${media.small`font-size: 45px;`}
       ${media.medium`font-size: 60px;`}
-      /* font-size: 60px; */
       a {
         color: inherit;
         text-decoration: none;
@@ -37,11 +36,13 @@ const ContactPageContainer = styled.div`
             position: absolute;
             left: 0;
             right: 100%;
-            bottom: 27px;
+            bottom: 8px;
             background: #e84b4c;
-            height: 7px;
+            height: 3px;
             z-index: -1;
             transition-duration: 0.2s;
+            ${media.small`bottom: 21px; height: 7px;`}
+            ${media.smallMedium`bottom: 27px; height: 7px;`}
           }
           &:hover:after {
             right: 0;

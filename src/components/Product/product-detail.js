@@ -53,7 +53,6 @@ const ProductPageContainer = styled.div`
         width: 100%;
         margin-bottom: 4rem;
         ${media.smallMedium`margin: 0 0 0 0.75rem;`}
-
         .custom-select-wrapper {
           position: relative;
           user-select: none;
@@ -133,6 +132,24 @@ const ProductPageContainer = styled.div`
                   background-color: #e84b4c;
                 }
               }
+              .custom-option-unavailable {
+                position: relative;
+                display: block;
+                padding: 0 22px 0 22px;
+                font-size: 15px;
+                font-weight: 300;
+                color: #000000;
+                line-height: 60px;
+                cursor: pointer;
+                transition: ease-in-out 0.2s;
+                font-family: "Space Mono";
+                opacity: 0.3;
+                ${media.xsmall`font-size: 20px;`}
+                ${media.medium`font-size: 15px;`}
+                &:hover {
+                  cursor: pointer;
+                }
+              }
             }
           }
         }
@@ -140,6 +157,21 @@ const ProductPageContainer = styled.div`
           width: 100%;
           height: 60px;
           font-family: "Space Mono";
+          .unavailable-wrapper {
+            height: 60px;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p {
+              margin: 0;
+              padding: 0;
+              font-size: 15px;
+            }
+          }
         }
       }
     }
@@ -160,7 +192,7 @@ const ProductDetail = ({ product }) => {
     console.log(selectedVariant)
   }
 
-  console.log(selectedVariant)
+  console.log(product)
 
   return (
     <ProductPageContainer>
@@ -200,6 +232,7 @@ const ProductDetail = ({ product }) => {
                       alt="Chevron Down"
                     />
                   </div>
+
                   <div
                     className={
                       selectOpen === true
@@ -214,26 +247,47 @@ const ProductDetail = ({ product }) => {
                     }}
                     value={selectedVariant?.sku}
                   >
-                    {product?.variants?.map(variant => (
-                      <span
-                        onClick={variantSelected(variant)}
-                        className={
-                          selectedVariant === variant
-                            ? "custom-option selected"
-                            : "custom-option"
-                        }
-                        value={variant?.sku}
-                        key={variant?.id}
-                      >
-                        {variant?.title}
-                      </span>
-                    ))}
+                    {product?.variants?.map(variant => {
+                      if (variant.availableForSale === true) {
+                        return (
+                          <span
+                            onClick={variantSelected(variant)}
+                            className={
+                              selectedVariant === variant
+                                ? "custom-option selected"
+                                : "custom-option"
+                            }
+                            value={variant?.sku}
+                            key={variant?.id}
+                          >
+                            {variant?.title}
+                          </span>
+                        )
+                      } else {
+                        return (
+                          <span
+                            className="custom-option-unavailable"
+                            // onClick={variantSelected(variant)}
+                            value={variant?.sku}
+                            key={variant?.id}
+                          >
+                            {variant?.title} (Unavailable)
+                          </span>
+                        )
+                      }
+                    })}
                   </div>
                 </div>
               </div>
             )}
             <div class="addtocart">
-              <AddToCart variantId={selectedVariant?.shopifyId} />
+              {selectedVariant?.availableForSale === false ? (
+                <div class="unavailable-wrapper">
+                  <p className="unavailable">Size Unavailable</p>
+                </div>
+              ) : (
+                <AddToCart variantId={selectedVariant?.shopifyId} />
+              )}
             </div>
           </div>
         </div>

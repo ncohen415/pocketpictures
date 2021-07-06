@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import ProductDetail from "../components/Product/product-detail"
 
 const ProductPageTemplate = ({ data }) => {
-  console.log(data)
   const product = data?.product?.edges[0]?.node || {}
 
   return (
@@ -38,6 +37,7 @@ export const data = graphql`
             title
             sku
             price
+            availableForSale
           }
         }
       }

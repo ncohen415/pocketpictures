@@ -50,6 +50,8 @@ const ProductsListingItem = ({ product }) => {
     variants: [firstVariant],
   } = product
 
+  console.log(product)
+
   return (
     <ProductContainer>
       <Link to={`/product/${product.handle}`}>

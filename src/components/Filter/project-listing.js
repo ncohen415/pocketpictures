@@ -27,7 +27,8 @@ const Container = styled.div`
       margin: 1rem 0 1rem 0;
       padding: 0 2rem 0 2rem;
       ${media.medium`margin: 0;`}
-      button {
+
+      .strike-through {
         background: none;
         color: inherit;
         border: none;
@@ -37,33 +38,28 @@ const Container = styled.div`
         font-family: "Neue Haas Grotesk Bold";
         font-size: 25px;
         z-index: 1;
-        ${media.small`font-size: 35px;`}
-        ${media.smallMedium`font-size: 45px;`}
+        display: inline;
+        position: relative;
+        overflow: hidden;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 100%;
+          bottom: 12px;
+          background: #e84b4c;
+          height: 4px;
+          z-index: -1;
+          transition-duration: 0.2s;
+          ${media.small`font-size: 35px;`}
+          ${media.smallMedium`font-size: 45px;`}
         ${media.medium`font-size: 25px;`}
-        .strike-through {
-          display: inline;
-          position: relative;
-          overflow: hidden;
-          &:after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 100%;
-            bottom: 11px;
-            background: #e84b4c;
-            height: 4px;
-            z-index: -1;
-            transition-duration: 0.2s;
-          }
-          &:hover:after {
-            right: 0;
-          }
-          &:focus:after {
-            right: 0;
-          }
-          &:active:after {
-            right: 0;
-          }
+        }
+        &.active:after {
+          right: 0;
+        }
+        &:hover:after {
+          right: 0;
         }
       }
     }
@@ -163,8 +159,16 @@ const ProjectListing = () => {
         {videoGenres.map(genre => {
           return (
             <li>
-              <button onClick={e => setFilterValue(genre)} value={genre}>
-                <div className="strike-through">{genre}</div>
+              <button
+                onClick={e => setFilterValue(genre)}
+                value={genre}
+                className={
+                  filterValue === genre
+                    ? "strike-through active"
+                    : "strike-through"
+                }
+              >
+                {genre}
               </button>
             </li>
           )

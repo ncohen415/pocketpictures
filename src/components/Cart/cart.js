@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { StoreContext } from "../../context/StoreContext"
 import { motion } from "framer-motion"
+import { media } from "../mq"
 
 //Images
 import CloseCart from "../../images/close-cart.svg"
 import RemoveFromCart from "../../images/remove-from-cart.svg"
-import ArrowRight from "../../images/arrow-right.svg"
 
 //Styled Components
 const CartContainer = styled(motion.div)`
@@ -14,12 +14,13 @@ const CartContainer = styled(motion.div)`
   z-index: 5000;
   top: 0;
   right: 0;
-  width: 35%;
+  width: 100%;
   height: 100vh;
   background-color: white;
   box-shadow: -3px 0 10px 1px gray;
   overflow-y: scroll;
   padding: 2rem 1.5rem 2rem 1.5rem;
+  ${media.medium`width: 35%;`}
   ::-webkit-scrollbar {
     display: none;
   }
@@ -220,6 +221,26 @@ const ItemWrapper = styled.div`
   }
 `
 
+const CartOverlay = styled(motion.div)`
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 100vh;
+  width: 100%;
+  background-color: #e84b4c;
+  z-index: 4999;
+  button {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    border: none;
+  }
+`
+
 const Cart = () => {
   //Context
   const {
@@ -239,103 +260,97 @@ const Cart = () => {
   }
 
   return (
-    <CartContainer
-      key="cart-container"
-      initial="closed"
-      animate="open"
-      exit="closed"
-      variants={{
-        open: { x: 0, opacity: 1 },
-        closed: { x: 300, opacity: 0 },
-      }}
-      transition={{
-        duration: 0.5,
-      }}
-    >
-      <div className="cart-title">
-        <h1>Cart</h1>
-        <button onClick={toggleCartOpen}>
-          <img src={CloseCart} alt="X" />
-        </button>
-      </div>
-      <hr />
-      <form
-        className="promo-form"
-        onSubmit={e => {
-          e.preventDefault()
-          checkPromo(promo)
+    <>
+      <CartContainer
+        key="cart-container"
+        initial="closed"
+        animate="open"
+        exit="closed"
+        variants={{
+          open: { x: 0, opacity: 1 },
+          closed: { x: 300, opacity: 0 },
+        }}
+        transition={{
+          duration: 0.5,
         }}
       >
-        <div className="promo-wrapper">
-          <input
-            placeholder="Enter Promo Code"
-            type="text"
-            className="promo-input"
-            id="promo"
-            value={promo}
-            onChange={e => setPromo(e.target.value)}
-          />
-
-          <button className="add-promo">
-            <img src={ArrowRight} alt="Add Promo" />
+        <div className="cart-title">
+          <h1>Cart</h1>
+          <button onClick={toggleCartOpen}>
+            <img src={CloseCart} alt="X" />
           </button>
         </div>
-      </form>
-      <hr style={{ marginTop: "calc(1.45rem - 1px)" }} />
-      {checkout.lineItems.length === 0 ? <p>Your cart is empty!</p> : ""}
-      {checkout.lineItems.map(item => (
-        <ItemWrapper key={item.id}>
-          <div className="image-wrapper">
-            <img src={item.variant.image.src} alt="bruh" />
-          </div>
-          <div className="info-wrapper">
-            <p className="product-title">{item.title}</p>
-            {item?.variant?.selectedOptions?.map(option => (
-              <p className="variant-info">
-                {option.name}: {option.value}
-              </p>
-            ))}
-            <div className="quantity-wrapper">
-              <button
-                className="remove"
-                onClick={() => updateQuantityInCart(item, item.quantity - 1)}
-              >
-                -
-              </button>
-              <p className="product-quantity">{item.quantity}</p>
-              <button
-                className="add"
-                onClick={() => updateQuantityInCart(item, item.quantity + 1)}
-              >
-                +
-              </button>
+        <hr style={{ marginTop: "calc(1.45rem - 1px)" }} />
+        {checkout.lineItems.length === 0 ? <p>Your cart is empty!</p> : ""}
+        {checkout.lineItems.map(item => (
+          <ItemWrapper key={item.id}>
+            <div className="image-wrapper">
+              <img src={item.variant.image.src} alt="bruh" />
             </div>
-          </div>
+            <div className="info-wrapper">
+              <p className="product-title">{item.title}</p>
+              {item?.variant?.selectedOptions?.map(option => (
+                <p className="variant-info">
+                  {option.name}: {option.value}
+                </p>
+              ))}
+              <div className="quantity-wrapper">
+                <button
+                  className="remove"
+                  onClick={() => updateQuantityInCart(item, item.quantity - 1)}
+                >
+                  -
+                </button>
+                <p className="product-quantity">{item.quantity}</p>
+                <button
+                  className="add"
+                  onClick={() => updateQuantityInCart(item, item.quantity + 1)}
+                >
+                  +
+                </button>
+              </div>
+            </div>
 
-          <div className="price-wrapper">
-            <button onClick={() => removeItemTypeFromCart(item.id)}>
-              <img src={RemoveFromCart} alt="X" />
-            </button>
-            <p className="product-price">${item.variant.price}</p>
-          </div>
-        </ItemWrapper>
-      ))}
-      <hr />
-      <div className="subtotal-wrapper">
-        <h3>Subtotal: ${checkout.subtotalPrice}</h3>
-        <p>(Shipping and taxes calculated at checkout.)</p>
-      </div>
-      <div className="checkout-wrapper">
-        <a
-          className="checkout-button"
-          href={checkout.webUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button>Checkout</button>
-        </a>
-      </div>
-    </CartContainer>
+            <div className="price-wrapper">
+              <button onClick={() => removeItemTypeFromCart(item.id)}>
+                <img src={RemoveFromCart} alt="X" />
+              </button>
+              <p className="product-price">${item.variant.price}</p>
+            </div>
+          </ItemWrapper>
+        ))}
+        <hr />
+        <div className="subtotal-wrapper">
+          <h3>Subtotal: ${checkout.subtotalPrice}</h3>
+          <p>(Shipping and taxes calculated at checkout.)</p>
+        </div>
+        <div className="checkout-wrapper">
+          <a
+            className="checkout-button"
+            href={checkout.webUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button>Checkout</button>
+          </a>
+        </div>
+      </CartContainer>
+      <CartOverlay
+        key="cart-container"
+        initial="closed"
+        animate="open"
+        exit="closed"
+        variants={{
+          open: { opacity: 0.5 },
+          closed: { opacity: 0 },
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+      >
+        <button onClick={toggleCartOpen}></button>
+      </CartOverlay>
+    </>
   )
 }
 

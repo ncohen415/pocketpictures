@@ -37,15 +37,36 @@ const HeaderContainer = styled.header`
         align-items: center;
         width: 100%;
         ${media.small`flex: 0 1 33%;`}
-        a {
+        .strike-through {
+          display: inline;
+          position: relative;
+          overflow: hidden;
           text-decoration: none;
           color: inherit;
-          p {
-            margin: 0;
-            text-align: left;
-            font-family: "Space Mono";
-            font-size: 15px;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 100%;
+            bottom: 10px;
+            background: #e84b4c;
+            height: 2px;
+            z-index: -1;
+            transition-duration: 0.2s;
           }
+          &.active:after {
+            right: 0;
+          }
+          &:hover:after {
+            right: 0;
+          }
+        }
+
+        p {
+          margin: 0;
+          text-align: left;
+          font-family: "Space Mono";
+          font-size: 15px;
         }
       }
       .menu-wrapper {
@@ -63,7 +84,7 @@ const HeaderContainer = styled.header`
         justify-content: flex-end;
         overflow: visible;
         .cart {
-          display: block;
+          display: none;
           position: relative;
           margin: 0 0.5rem 0 0;
           padding: 0;
@@ -72,9 +93,6 @@ const HeaderContainer = styled.header`
           cursor: pointer;
           outline: none;
           ${media.medium`display: block !important;`}
-          &.active {
-            display: none;
-          }
         }
         .mobile-button {
           display: block;
@@ -129,7 +147,14 @@ const Header = ({ mobileNavOpen, toggleMenu }) => {
       <div className="nav-container">
         <div className="nav-wrapper">
           <div className="brand-wrapper">
-            <Link to="/">
+            <Link
+              to="/"
+              className={
+                location.pathname === "/"
+                  ? "strike-through active"
+                  : "strike-through"
+              }
+            >
               <p>Pocket Pictures, Inc.</p>
             </Link>
           </div>
@@ -138,10 +163,7 @@ const Header = ({ mobileNavOpen, toggleMenu }) => {
             <Menu menu={menu} />
           </div>
           <div className="cart-mobile-wrapper">
-            <button
-              className={location.pathname !== "/shop" ? "cart active" : "cart"}
-              onClick={toggleCartOpen}
-            >
+            <button className="cart" onClick={toggleCartOpen}>
               <CartIcon />
             </button>
             <button className="mobile-button" onClick={() => toggleMenu()}>
