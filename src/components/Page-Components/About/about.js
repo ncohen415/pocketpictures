@@ -4,11 +4,6 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import SEO from "../../seo"
 import { media } from "../../mq"
 
-//Components
-import Staff from "./staff"
-import Talent from "./talent"
-import Client from "./client"
-
 const AboutPageContainer = styled.div`
   width: 100%;
   height: 100%;

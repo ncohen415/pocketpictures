@@ -49,7 +49,7 @@ const FooterContainer = styled.footer`
       }
       button {
         margin: 0;
-        padding: 0;
+        padding: 0 0 0.5rem 0;
         font-size: 30px;
         font-weight: 600px;
         font-family: "Adobe Garamond";
