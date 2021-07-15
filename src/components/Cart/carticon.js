@@ -4,9 +4,6 @@ import styled from "styled-components"
 //Components
 import { StoreContext } from "../../context/StoreContext"
 
-//Images
-import ShoppingBag from "../../images/shopping-bag.svg"
-
 const CartIconContainer = styled.div`
   display: flex;
   margin: 0;

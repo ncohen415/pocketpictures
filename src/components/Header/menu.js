@@ -70,6 +70,7 @@ const Menu = ({ menu, mobileNavOpen, toggleMenu }) => {
             <a
               href="https://www.instagram.com/pocketpictures.video/?hl=en"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={IG} alt="Instagram" />
             </a>

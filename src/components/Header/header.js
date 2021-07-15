@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import PropTypes from "prop-types"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
@@ -132,7 +132,7 @@ const Header = ({ mobileNavOpen, toggleMenu }) => {
   const menu = data?.wpMenu?.menuItems?.nodes
 
   //Store Context
-  const { isCartOpen, toggleCartOpen, checkout } = useContext(StoreContext)
+  const { isCartOpen, toggleCartOpen } = useContext(StoreContext)
 
   //Location
   const location = useLocation()

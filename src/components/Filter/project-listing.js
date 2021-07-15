@@ -147,8 +147,7 @@ const ProjectListing = () => {
       if (!listOfGenres.includes(genre)) {
         listOfGenres.push(genre)
       }
-
-      setVideoGenres(listOfGenres)
+      return setVideoGenres(listOfGenres)
     })
   }, [projects])
 

@@ -250,7 +250,7 @@ const Cart = () => {
         {checkout.lineItems.map(item => (
           <ItemWrapper key={item.id}>
             <div className="image-wrapper">
-              <img src={item.variant.image.src} alt="Product Thumbnail Image" />
+              <img src={item.variant.image.src} alt="Product Thumbnail" />
             </div>
             <div className="info-wrapper">
               <p className="product-title">{item.title}</p>

@@ -23,7 +23,6 @@ export const data = graphql`
           ProjectsACF {
             video
             videoGenre
-            aspectRatioHeight
             aspectRatioWidth
             description
             featured

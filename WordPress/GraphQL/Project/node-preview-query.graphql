@@ -1,7 +1,6 @@
 query PREVIEW_QUERY($id: ID!) {
   project(id: $id, idType: ID, asPreview: true) {
     ProjectsACF {
-      aspectRatioHeight
       aspectRatioWidth
       description
       featured
