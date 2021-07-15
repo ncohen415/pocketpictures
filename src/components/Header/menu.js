@@ -49,13 +49,7 @@ const MenuWrapper = styled.nav`
   }
 `
 const Menu = ({ menu, mobileNavOpen, toggleMenu }) => {
-  const {
-    removeItemTypeFromCart,
-    updateQuantityInCart,
-    toggleCartOpen,
-    checkout,
-    checkPromo,
-  } = useContext(StoreContext)
+  const { toggleCartOpen } = useContext(StoreContext)
   return (
     <MenuWrapper>
       <ul className="nav">
@@ -69,7 +63,7 @@ const Menu = ({ menu, mobileNavOpen, toggleMenu }) => {
           )
         })}
         <li className="mobile-cart">
-          <div class="cart-social">
+          <div className="cart-social">
             <button className="mobile-cart-button" onClick={toggleCartOpen}>
               <img src={Cart} alt="Shopping Bag" />
             </button>

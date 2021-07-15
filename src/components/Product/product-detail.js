@@ -22,7 +22,7 @@ const ProductPageContainer = styled.div`
     margin-bottom: 2rem;
     .gatsby-image-wrapper {
       aspect-ratio: 1;
-      ${media.smallMedium`height:70vh;`}
+      ${media.smallMedium`height: 70vh;`}
     }
   }
   .info-wrapper {
@@ -33,6 +33,9 @@ const ProductPageContainer = styled.div`
       display: flex;
       flex: 0 1 50%;
       justify-content: space-between;
+      h1 {
+        font-family: "Neue Haas Grotesk Medium";
+      }
     }
     .description-shop {
       display: flex;
@@ -45,6 +48,9 @@ const ProductPageContainer = styled.div`
         flex: 0 1 60%;
         width: 100%;
         ${media.smallMedium`margin: 0 0.75rem 0 0;`}
+        p {
+          font-family: "Neue Haas Grotesk";
+        }
       }
       .variant-addtocart {
         display: flex;
@@ -71,7 +77,7 @@ const ProductPageContainer = styled.div`
               align-items: center;
               justify-content: space-between;
               padding: 0 22px;
-              font-size: 15px;
+              font-size: 18px;
               font-weight: 300;
               color: #000000;
               height: 60px;
@@ -81,9 +87,9 @@ const ProductPageContainer = styled.div`
               border-width: 2px 0 2px 0;
               border-style: solid;
               border-color: #000000;
-              font-family: "Space Mono";
+              font-family: "Neue Haas Grotesk";
               ${media.xsmall`font-size: 20px;`}
-              ${media.large`font-size: 15px;`}
+              ${media.large`font-size: 18px;`}
               .arrow {
                 position: relative;
                 height: 25px;
@@ -120,7 +126,7 @@ const ProductPageContainer = styled.div`
                 line-height: 60px;
                 cursor: pointer;
                 transition: ease-in-out 0.2s;
-                font-family: "Space Mono";
+                font-family: "Neue Haas Grotesk";
                 ${media.xsmall`font-size: 20px;`}
                 ${media.medium`font-size: 15px;`}
                 &:hover {
@@ -142,7 +148,7 @@ const ProductPageContainer = styled.div`
                 line-height: 60px;
                 cursor: pointer;
                 transition: ease-in-out 0.2s;
-                font-family: "Space Mono";
+                font-family: "Neue Haas Grotesk";
                 opacity: 0.3;
                 ${media.xsmall`font-size: 20px;`}
                 ${media.medium`font-size: 15px;`}
@@ -156,7 +162,7 @@ const ProductPageContainer = styled.div`
         .addtocart {
           width: 100%;
           height: 60px;
-          font-family: "Space Mono";
+          font-family: "Neue Haas Grotesk";
           .unavailable-wrapper {
             height: 60px;
             background-color: white;
@@ -169,7 +175,7 @@ const ProductPageContainer = styled.div`
             p {
               margin: 0;
               padding: 0;
-              font-size: 15px;
+              font-size: 18px;
             }
           }
         }
@@ -199,7 +205,7 @@ const ProductDetail = ({ product }) => {
       <div className="image-wrapper">
         <GatsbyImage
           image={getImage(product?.images[0]?.localFile)}
-          alt="bruh"
+          alt="Product Image"
         />
       </div>
 
@@ -210,10 +216,10 @@ const ProductDetail = ({ product }) => {
         </div>
 
         <div className="description-shop">
-          <div class="description">
+          <div className="description">
             <p>{product?.description}</p>
           </div>
-          <div class="variant-addtocart">
+          <div className="variant-addtocart">
             {selectedVariant?.title === "Default Title" ? (
               ""
             ) : (
@@ -280,14 +286,8 @@ const ProductDetail = ({ product }) => {
                 </div>
               </div>
             )}
-            <div class="addtocart">
-              {selectedVariant?.availableForSale === false ? (
-                <div class="unavailable-wrapper">
-                  <p className="unavailable">Size Unavailable</p>
-                </div>
-              ) : (
-                <AddToCart variantId={selectedVariant?.shopifyId} />
-              )}
+            <div className="addtocart">
+              <AddToCart variantId={selectedVariant?.shopifyId} />
             </div>
           </div>
         </div>

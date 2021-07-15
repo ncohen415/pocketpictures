@@ -32,12 +32,13 @@ const ProductContainer = styled.div`
           text-align: center;
           margin: 0;
           padding: 0;
-          font-weight: 300;
+          font-family: "Neue Haas Grotesk Medium";
         }
         .price {
           text-align: center;
           margin: 0;
           padding: 0;
+          font-family: "Neue Haas Grotesk";
         }
       }
     }
@@ -55,7 +56,7 @@ const ProductsListingItem = ({ product }) => {
   return (
     <ProductContainer>
       <Link to={`/product/${product.handle}`}>
-        <div class="inner-wrapper">
+        <div className="inner-wrapper">
           <GatsbyImage
             image={getImage(firstImage?.localFile)}
             alt="Product Image"

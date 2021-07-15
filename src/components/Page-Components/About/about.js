@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import SEO from "../../seo"
 import { media } from "../../mq"
 
@@ -72,14 +72,14 @@ const About = () => {
   return (
     <AboutPageContainer>
       <SEO title="About" />
-      <div class="copy-wrapper">
+      <div className="copy-wrapper">
         <h1>
           <div dangerouslySetInnerHTML={{ __html: aboutACF.aboutPageCopy }} />
         </h1>
       </div>
       <br />
       <br />
-      <div class="email-wrapper">
+      <div className="email-wrapper">
         <h2>
           <a href="/contact" className="strike-through">
             {aboutACF.contactUs}

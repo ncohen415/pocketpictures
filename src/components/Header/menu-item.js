@@ -10,7 +10,7 @@ const MenuItemWrapper = styled.li`
   padding: 0.5rem;
   font-weight: 400;
   font-size: 15px;
-  font-family: "Space Mono";
+  font-family: "Neue Haas Grotesk";
   .strike-through {
     display: inline;
     position: relative;
@@ -27,7 +27,7 @@ const MenuItemWrapper = styled.li`
       height: 4px;
       z-index: -1;
       transition-duration: 0.2s;
-      ${media.medium`bottom: 8px; height: 2px;`}
+      ${media.medium`bottom: 7px; height: 2px;`}
     }
     &.active:after {
       right: 0;

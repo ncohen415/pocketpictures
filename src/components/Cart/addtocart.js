@@ -8,7 +8,7 @@ const AddToCartButton = styled.button`
   height: 100%;
   cursor: pointer;
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 2;
   background-color: black;
   color: white;
@@ -17,7 +17,7 @@ const AddToCartButton = styled.button`
   transition: 0.1s ease-in-out;
   outline: none;
   ${media.xsmall`font-size: 20px;`}
-  ${media.large`font-size: 15px;`}
+  ${media.large`font-size: 18px;`}
   &:hover {
     background-color: white;
     color: black;

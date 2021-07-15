@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import SEO from "../../seo"
 import { media } from "../../mq"
@@ -25,10 +24,6 @@ const HomePageContainer = styled.div`
       ${media.small`font-size: 45px;`}
       ${media.smallMedium`font-size: 60px;`}
     }
-    p {
-      font-size: 3vh;
-      opacity: 0.6;
-    }
   }
   .filter-wrapper {
     display: flex;
@@ -36,24 +31,6 @@ const HomePageContainer = styled.div`
     height: 100%;
     width: 100%;
     min-height: 50vh;
-  }
-  .email-us {
-    position: relative;
-    width: 100%;
-    height: 25vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h3 {
-      font-size: 5vh;
-      &:hover {
-        text-decoration: underline;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
   }
 `
 
@@ -67,7 +44,7 @@ const Home = data => {
       <div className="home-page-heading">
         <h1>{homeACF.heading}</h1>
       </div>
-      <div class="filter-wrapper">
+      <div className="filter-wrapper">
         <ProjectListing projects={ProjectsACF} />
       </div>
     </HomePageContainer>

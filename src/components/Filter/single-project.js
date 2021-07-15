@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { media } from "../mq"
 
 const ProjectContainer = styled.div`
@@ -24,17 +23,19 @@ const ProjectContainer = styled.div`
     align-items: center;
     ${media.medium`padding: 2rem 0 2rem 0; flex-direction: row;`}
     .title {
+      font-family: "Neue Haas Grotesk Bold";
       flex: 0 1 50%;
       text-align: center;
       ${media.medium`padding: 0 2rem 0 0; text-align: left;`}
     }
     .description {
+      font-family: "Neue Haas Grotesk";
       flex: 0 1 50%;
       text-align: center;
       ${media.medium`padding: 0 2rem 0 0; text-align: left;`}
     }
   }
-  .project-stills-wrapper {
+  /* .project-stills-wrapper {
     width: 100%;
     .stills-inner-wrapper {
       column-count: 3;
@@ -42,37 +43,34 @@ const ProjectContainer = styled.div`
       .image-wrapper {
       }
     }
-  }
+  } */
 `
 
 const SingleProject = ({ project }) => {
   const customFields = project?.ProjectsACF
   return (
     <ProjectContainer>
-      <div class="video-wrapper">
+      <div className="video-wrapper">
         <div
           className="video"
-          style={{
-            width: customFields?.aspectRatioWidth < 16 ? "75%" : "100%",
-          }}
           dangerouslySetInnerHTML={{ __html: customFields?.video }}
         />
       </div>
-      <div class="project-info">
+      <div className="project-info">
         <h1 className="title">{project?.title}</h1>
         <p className="description">{customFields?.description}</p>
       </div>
-      <div className="project-stills-wrapper">
-        <div class="stills-inner-wrapper">
+      {/* <div className="project-stills-wrapper">
+        <div className="stills-inner-wrapper">
           {customFields?.stills?.map(still => {
             return (
-              <div class="image-wrapper">
+              <div className="image-wrapper">
                 <GatsbyImage image={getImage(still.projectStills.localFile)} />
               </div>
             )
           })}
         </div>
-      </div>
+      </div> */}
     </ProjectContainer>
   )
 }

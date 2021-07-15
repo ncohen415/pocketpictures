@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { StoreContext } from "../../context/StoreContext"
 import { motion } from "framer-motion"
@@ -33,6 +33,7 @@ const CartContainer = styled(motion.div)`
     h1 {
       padding: 0;
       margin: 0;
+      font-family: "Neue Haas Grotesk Bold";
     }
     button {
       height: 30px;
@@ -51,51 +52,19 @@ const CartContainer = styled(motion.div)`
       }
     }
   }
-
-  .promo-form {
-    width: 100%;
-    .promo-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      .promo-input {
-        flex: 1 75%;
-        border: none;
-        outline: none;
-        font-size: 14px;
-      }
-      .add-promo {
-        display: flex;
-        justify-content: center;
-        height: 30px;
-        width: 30px;
-        cursor: pointer;
-        text-align: center;
-        font-size: 2.5vh;
-        line-height: 2;
-        font-weight: 700;
-        background-color: white;
-        color: black;
-        border: none;
-        transition: 0.1s ease-in-out;
-        outline: none;
-        img {
-          height: inherit;
-          width: inherit;
-        }
-      }
-    }
+  .empty {
+    font-family: "Neue Haas Grotesk Light";
   }
   .subtotal-wrapper {
     display: flex;
     flex-direction: column;
     h3 {
-      font-family: "Open Sans", sans-serif;
+      font-family: "Neue Haas Grotesk Medium";
       padding: 0;
       margin: 0;
     }
     p {
+      font-family: "Neue Haas Grotesk Light";
       font-size: 12px;
       opacity: 0.7;
       margin: 0;
@@ -112,7 +81,7 @@ const CartContainer = styled(motion.div)`
       text-decoration: none;
       color: inherit;
       button {
-        font-family: "Space Mono";
+        font-family: "Neue Haas Grotesk";
         cursor: pointer;
         text-align: center;
         font-size: 15px;
@@ -248,16 +217,7 @@ const Cart = () => {
     updateQuantityInCart,
     toggleCartOpen,
     checkout,
-    checkPromo,
   } = useContext(StoreContext)
-
-  //State
-  const [promo, setPromo] = useState("")
-
-  //Functions
-  const promoApplied = () => {
-    return <p>hi</p>
-  }
 
   return (
     <>
@@ -277,15 +237,20 @@ const Cart = () => {
         <div className="cart-title">
           <h1>Cart</h1>
           <button onClick={toggleCartOpen}>
-            <img src={CloseCart} alt="X" />
+            <img src={CloseCart} alt="Close Cart" />
           </button>
         </div>
+
         <hr style={{ marginTop: "calc(1.45rem - 1px)" }} />
-        {checkout.lineItems.length === 0 ? <p>Your cart is empty!</p> : ""}
+        {checkout.lineItems.length === 0 ? (
+          <p className="empty">Your cart is empty!</p>
+        ) : (
+          ""
+        )}
         {checkout.lineItems.map(item => (
           <ItemWrapper key={item.id}>
             <div className="image-wrapper">
-              <img src={item.variant.image.src} alt="bruh" />
+              <img src={item.variant.image.src} alt="Product Thumbnail Image" />
             </div>
             <div className="info-wrapper">
               <p className="product-title">{item.title}</p>
@@ -313,7 +278,7 @@ const Cart = () => {
 
             <div className="price-wrapper">
               <button onClick={() => removeItemTypeFromCart(item.id)}>
-                <img src={RemoveFromCart} alt="X" />
+                <img src={RemoveFromCart} alt="Remove From Cart" />
               </button>
               <p className="product-price">${item.variant.price}</p>
             </div>

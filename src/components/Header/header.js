@@ -48,7 +48,7 @@ const HeaderContainer = styled.header`
             position: absolute;
             left: 0;
             right: 100%;
-            bottom: 10px;
+            bottom: 12px;
             background: #e84b4c;
             height: 2px;
             z-index: -1;
@@ -65,7 +65,7 @@ const HeaderContainer = styled.header`
         p {
           margin: 0;
           text-align: left;
-          font-family: "Space Mono";
+          font-family: "Neue Haas Grotesk";
           font-size: 15px;
         }
       }

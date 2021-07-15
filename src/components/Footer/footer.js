@@ -34,7 +34,7 @@ const FooterContainer = styled.footer`
         margin: 0;
         padding: 0;
         font-size: 15px;
-        font-family: "Space Mono";
+        font-family: "Neue Haas Grotesk";
       }
     }
     .back-to-top {
@@ -52,14 +52,14 @@ const FooterContainer = styled.footer`
         padding: 0 0 0.5rem 0;
         font-size: 30px;
         font-weight: 600px;
-        font-family: "Adobe Garamond";
+        font-family: "Neue Haas Grotesk";
         background: none;
         border: none;
         cursor: pointer;
         outline: none;
       }
     }
-    .blurb {
+    .slogan {
       display: flex;
       justify-content: center;
       width: 100%;
@@ -70,7 +70,7 @@ const FooterContainer = styled.footer`
         margin: 0;
         padding: 0;
         font-size: 15px;
-        font-family: "Space Mono";
+        font-family: "Neue Haas Grotesk";
         ${media.medium`text-align: left;`}
       }
     }
@@ -84,7 +84,7 @@ const FooterContainer = styled.footer`
         margin: 0;
         padding: 0;
         font-size: 15px;
-        font-family: "Space Mono";
+        font-family: "Neue Haas Grotesk";
       }
     }
   }
@@ -93,21 +93,21 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" })
 }
 
-const Footer = ({ mobileNavOpen, toggleMenu }) => {
+const Footer = ({ mobileNavOpen }) => {
   return (
     <FooterContainer className={mobileNavOpen === true ? "active" : ""}>
       <div className="footer-wrapper">
-        <div class="email-wrapper">
+        <div className="email-wrapper">
           <p>hello@pocketpictures.video</p>
         </div>
-        <div class="back-to-top">
+        <div className="back-to-top">
           <img src={ArrowUp} alt="Up Arrow" />
           <button onClick={() => scrollToTop()}>Back to Top</button>
         </div>
-        <div class="blurb">
+        <div className="slogan">
           <p>Come for the pictures. Stay for the people.</p>
         </div>
-        <div class="email-wrapper-2">
+        <div className="email-wrapper-2">
           <p>hello@pocketpictures.video</p>
         </div>
       </div>

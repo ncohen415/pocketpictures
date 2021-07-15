@@ -16,7 +16,7 @@ const CartIconContainer = styled.div`
     color: inherit;
   }
   .cart {
-    font-family: "Space Mono";
+    font-family: "Neue Haas Grotesk";
     font-size: 15px;
     margin: 0 0.5rem 0 0;
     padding: 0;
@@ -27,11 +27,15 @@ const CartIconContainer = styled.div`
     font-size: 15px;
     .cart-counter {
       flex: 0 1 50%;
-      font-family: "Space Mono";
+      font-family: "Neue Haas Grotesk";
       font-size: 15px;
-      color: #e84b4c;
       margin: 0;
       padding: 0;
+      strong {
+        color: #e84b4c;
+        text-decoration: none;
+        padding: 0 0.15rem 0 0.15rem;
+      }
     }
   }
 `
@@ -48,7 +52,9 @@ const CartIcon = () => {
         ""
       ) : (
         <div class="counter-wrapper">
-          (<p className="cart-counter">{qty}</p>)
+          <span className="cart-counter">
+            (<strong>{qty}</strong>)
+          </span>
         </div>
       )}
     </CartIconContainer>

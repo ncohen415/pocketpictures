@@ -19,7 +19,7 @@ const ContactPageContainer = styled.div`
     h1 {
       width: 100%;
       text-align: center;
-      font-family: "Adobe Garamond";
+      font-family: "Neue Haas Grotesk Bold";
       font-size: 18px;
       ${media.small`font-size: 45px;`}
       ${media.medium`font-size: 60px;`}
@@ -79,6 +79,7 @@ const ContactPageContainer = styled.div`
         p {
           text-align: center;
           text-decoration: underline;
+          font-family: "Neue Haas Grotesk";
         }
       }
     }
@@ -98,6 +99,7 @@ const ContactPageContainer = styled.div`
         p {
           text-align: center;
           text-decoration: underline;
+          font-family: "Neue Haas Grotesk";
         }
       }
     }
@@ -111,13 +113,13 @@ const Contact = () => {
       <div className="email-wrapper">
         <h1>
           <a href="mailto:hello@pocketpictures.video">
-            <div class="strike-through">hello@pocketpictures.video</div>
+            <div className="strike-through">hello@pocketpictures.video</div>
           </a>
         </h1>
       </div>
       <div className="offices">
         <div className="west-coast">
-          <div class="west-inner-wrapper">
+          <div className="west-inner-wrapper">
             <h3>West Coast</h3>
             <p>
               498 Alabama St.,
@@ -127,7 +129,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="east-coast">
-          <div class="east-inner-wrapper">
+          <div className="east-inner-wrapper">
             <h3>East Coast</h3>
             <p>
               67 West St., Suite 201,

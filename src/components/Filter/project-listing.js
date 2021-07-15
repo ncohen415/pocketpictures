@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { media } from "../mq"
@@ -88,8 +88,6 @@ const ProjectListing = () => {
             ProjectsACF {
               video
               videoGenre
-              aspectRatioHeight
-              aspectRatioWidth
               description
               featured
               thumbnailImage {

@@ -35,13 +35,13 @@ const ProjectContainer = styled.div`
         p {
           text-align: center;
           margin-bottom: 0.5rem;
-          font-family: "Space Mono";
+          font-family: "Neue Haas Grotesk Light";
           font-size: 13px;
         }
         h4 {
           text-align: center;
           margin: 0;
-          font-family: "Adobe Garamond";
+          font-family: "Neue Haas Grotesk Bold";
         }
       }
     }
@@ -56,14 +56,14 @@ const ProjectListingItem = ({ project }) => {
   return (
     <ProjectContainer>
       <Link to={`/project/${project.node.slug}`}>
-        <div class="project-inner-wrapper">
-          <div class="thumbnail-wrapper">
+        <div className="project-inner-wrapper">
+          <div className="thumbnail-wrapper">
             <GatsbyImage
               image={getImage(thumbnail)}
               alt="Project Thumbnail Image"
             />
           </div>
-          <div class="details-wrapper">
+          <div className="details-wrapper">
             <p>{genre}</p>
             <h4>{title}</h4>
           </div>
