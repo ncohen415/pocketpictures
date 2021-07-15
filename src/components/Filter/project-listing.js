@@ -90,6 +90,7 @@ const ProjectListing = () => {
               videoGenre
               description
               featured
+              aspectRatioWidth
               thumbnailImage {
                 localFile {
                   childImageSharp {

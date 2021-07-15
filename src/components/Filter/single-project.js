@@ -53,6 +53,9 @@ const SingleProject = ({ project }) => {
       <div className="video-wrapper">
         <div
           className="video"
+          style={{
+            width: customFields?.aspectRatioWidth < 16 ? "75%" : "100%",
+          }}
           dangerouslySetInnerHTML={{ __html: customFields?.video }}
         />
       </div>
