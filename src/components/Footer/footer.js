@@ -97,7 +97,7 @@ const Footer = ({ mobileNavOpen }) => {
     <FooterContainer className={mobileNavOpen === true ? "active" : ""}>
       <div className="footer-wrapper">
         <div className="email-wrapper">
-          <p>hello@pocketpictures.video</p>
+          <p>info@pocketpictures.video</p>
         </div>
         <div className="back-to-top">
           <img src={ArrowUp} alt="Up Arrow" />
@@ -107,7 +107,7 @@ const Footer = ({ mobileNavOpen }) => {
           <p>Come for the pictures. Stay for the people.</p>
         </div>
         <div className="email-wrapper-2">
-          <p>hello@pocketpictures.video</p>
+          <p>info@pocketpictures.video</p>
         </div>
       </div>
     </FooterContainer>

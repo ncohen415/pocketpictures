@@ -112,8 +112,8 @@ const Contact = () => {
       <SEO title="Contact" />
       <div className="email-wrapper">
         <h1>
-          <a href="mailto:hello@pocketpictures.video">
-            <div className="strike-through">hello@pocketpictures.video</div>
+          <a href="mailto:info@pocketpictures.video">
+            <div className="strike-through">info@pocketpictures.video</div>
           </a>
         </h1>
       </div>
